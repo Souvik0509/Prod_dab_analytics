@@ -29,7 +29,11 @@ resources:
             - task_key: customer_info
           notebook_task:
             notebook_path: ../src/bakehouse_transaction.ipynb
-
+        - task_key: customer_suppliers
+          depends_on:
+            - task_key: customer_transaction
+          notebook_task:
+            notebook_path: ../src/bakehouse_suppliers.ipynb
 
 
       environments:
