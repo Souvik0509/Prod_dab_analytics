@@ -20,11 +20,17 @@ resources:
           default: ${var.catalog}
         - name: schema
           default: ${var.schema}
-
       tasks:
-        - task_key: notebook_task
+        - task_key: customer_info
           notebook_task:
             notebook_path: ../src/bakehouse_customer.ipynb
+        - task_key: customer_transaction
+          depends_on:
+            - task_key: customer_info
+          notebook_task:
+            notebook_path: ../src/bakehouse_transaction.ipynb
+
+
 
       environments:
         - environment_key: default
